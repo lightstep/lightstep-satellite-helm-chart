@@ -43,6 +43,7 @@ Lightstep satellite to collect telemetry data.
 | lightstep.tls_cert_prefix | string | `nil` |  |
 | nameOverride | string | `""` |  |
 | nodeSelector | object | `{}` |  |
+| podAnnotations."prometheus.io/port" | string | `"9102"` |  |
 | podAnnotations."prometheus.io/scrape" | string | `"true"` |  |
 | podSecurityContext | object | `{}` |  |
 | replicaCount | int | `1` |  |
