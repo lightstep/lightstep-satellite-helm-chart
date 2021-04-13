@@ -1,3 +1,11 @@
+##1.2.3
+
+ENHANCEMENTS:
+
+* Added a service for statsD-exporter
+* Updated REAME with accurate metrics functionality
+* Added another maintainer
+
 ## 1.2.2
 
 BUG FIXES:

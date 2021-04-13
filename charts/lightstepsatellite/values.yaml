@@ -67,12 +67,19 @@ securityContext:
   runAsUser: 1000
 
 service:
-  type: ClusterIP
+  type: LoadBalancer
   httpPort: 8181
   # -- set to true if you're using GRPC in order to deploy as a headless service for better load balancing
   grpc: false
   grpcinsecure: 8184
   annotations: {}
+  # -- set to true to create a service for the statsd exporter. This endpoint will yield a Prometheus endpoint to scrape
+  metricExporter: false
+  metricServiceType: LoadBalancer
+  # -- This should be the same as the podAnnotations.prometheus.io/port value
+  promScrapeEndpoint: 9102
+
+
 
 
 ingress:
@@ -147,12 +154,12 @@ affinity: {}
 
 statsd:
   enabled: false
-  host: statsd-exporter
+  host: localhost
   port: 9125
   export_statsd: true                               # If true, dogStatsD will be ignored
   prefix: "lightstep.prod.us-west-1"
   satellite_prefix: "satellite-canary"
-  client_prefix: "client_via_canary"
+  client_prefix: "client"
   dogStatsD: false                                  # If true, will output dogStatsD instead of statsD
   dogStatsDTags: "pool:us-west-1,canary:true"
   image:
