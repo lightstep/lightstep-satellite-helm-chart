@@ -17,22 +17,22 @@ fullnameOverride: ""
 
 serviceAccount:
   # Specifies whether a service account should be created
-  create: false
+  create: true
   # Annotations to add to the service account
   annotations: {}
   # -- the name of the service account to use; if not set and create is true, a name is generated using the fullname template
   name:
   role:
     # Specifies whether get/watch/list for pods role should be created
-    create: false
+    create: true
     name: lightstep-pod-reader
   clusterRole:
     # Specifies whether get/watch/list for nodes clusterRole should be created
-    create: false
+    create: true
     name: lightstep-node-reader
   roleBinding:
     # Specifies whether role should be created
-    create: false
+    create: true
     name: lightstep-read-pods
     # -- if not set and create is true, the `serviceAccount.role.name` is used
     roleRefName:
@@ -40,7 +40,7 @@ serviceAccount:
     serviceAccountName:
   clusterRoleBinding:
     # Specifies whether clusterRole should be created
-    create: false
+    create: true
     name: lightstep-read-nodes
     # -- if not set and create is true, the `serviceAccount.clusterRole.name` is used
     roleRefName:
@@ -74,7 +74,7 @@ service:
   grpcinsecure: 8184
   annotations: {}
   # -- set to true to create a service for the statsd exporter. This endpoint will yield a Prometheus endpoint to scrape
-  metricExporter: false
+  metricExporter: true
   metricServiceType: LoadBalancer
   # -- This should be the same as the podAnnotations.prometheus.io/port value
   promScrapeEndpoint: 9102

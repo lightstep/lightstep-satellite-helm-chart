@@ -1,8 +1,16 @@
+##1.2.4
+
+ENHANCEMENTS:
+
+* Changed the default serviceaccpimt to be the Lightstep provisioned serviceaccount. This should enable easier 'default' deployments
+
+
 ##1.2.3
 
 ENHANCEMENTS:
 
 * Added a service for statsD-exporter
+* Changed default service type to LoadBalancer in order to provide a publicly accessible endpoint
 * Updated REAME with accurate metrics functionality
 * Added another maintainer
 
